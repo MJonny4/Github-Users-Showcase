@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { GithubContext } from "../context/context";
-import { ExampleChart, Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
+import {  Pie3D, Column3D, Bar3D, Doughnut2D } from "./Charts";
 
 const Repos = () => {
     const { repos } = React.useContext(GithubContext);
 
-    let languages = repos.reduce((total, item) => {
+    const languages = repos.reduce((total, item) => {
         const { language, stargazers_count } = item;
         if (!language) return total;
 
@@ -28,17 +28,17 @@ const Repos = () => {
     }, {});
 
     const mostUsed = Object.values(languages)
-        .sort((x, y) => {
+        .sort((x: any, y:any) => {
             return y.value - x.value;
         })
         .slice(0, 5);
 
     const mostPopular = Object.values(languages)
-        .sort((x, y) => {
+        .sort((x:any, y:any) => {
             return y.stars - x.stars;
         })
         .map((item) => {
-            return { ...item, value: item.stars };
+            return { ...(item as { stars: number }), value: (item as { stars: number }).stars };
         })
         .slice(0, 5);
 

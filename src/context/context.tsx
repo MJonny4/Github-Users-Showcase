@@ -6,7 +6,7 @@ import axios from "axios";
 
 const rootUrl = "https://api.github.com";
 
-const GithubContext = React.createContext();
+const GithubContext = React.createContext(null);
 
 //Provider, Consumer - GithubContext.{Provider, Consumer}
 
@@ -55,7 +55,7 @@ const GithubProvider = ({ children }) => {
         axios
             .get(`${rootUrl}/rate_limit`)
             .then(({ data }) => {
-                let {
+                const {
                     rate: { remaining },
                 } = data;
                 setRequests(remaining);

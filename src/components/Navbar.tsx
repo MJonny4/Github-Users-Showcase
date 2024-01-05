@@ -1,9 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-    const { isAuthenticated, loginWithRedirect, logout, user, isLoading } =
+    const { isAuthenticated, loginWithRedirect, logout, user } =
         useAuth0();
     const isUser = isAuthenticated && user;
 
@@ -20,13 +19,13 @@ const Navbar = () => {
             {isUser ? (
                 <button
                     onClick={() => {
-                        logout({ returnTo: window.location.origin });
+                        logout({});
                     }}
                 >
                     logout
                 </button>
             ) : (
-                <button onClick={loginWithRedirect}>login</button>
+                <button onClick={() => loginWithRedirect()}>login</button>
             )}
         </Wrapper>
     );

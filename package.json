@@ -1,25 +1,35 @@
 {
-    "name": "github-users-vite",
+    "name": "github-users-showcase",
     "private": true,
-    "version": "0.0.0",
+    "version": "1.1",
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "tsc && vite build",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview"
     },
     "dependencies": {
-        "@auth0/auth0-react": "^1.12.0",
-        "axios": "^1.4.0",
-        "fusioncharts": "^3.19.0",
-        "preact": "^10.16.0",
+        "@auth0/auth0-react": "^2.2.4",
+        "axios": "^1.6.4",
+        "fusioncharts": "^3.21.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
         "react-fusioncharts": "^4.0.0",
-        "react-icons": "^4.10.1",
-        "react-router-dom": "^6.14.2",
-        "styled-components": "^5.3.11"
+        "react-icons": "^4.12.0",
+        "react-router-dom": "^6.21.1",
+        "styled-components": "^6.1.6"
     },
     "devDependencies": {
-        "@preact/preset-vite": "^2.5.0",
-        "vite": "^4.4.5"
+        "@types/react": "^18.2.43",
+        "@types/react-dom": "^18.2.17",
+        "@typescript-eslint/eslint-plugin": "^6.14.0",
+        "@typescript-eslint/parser": "^6.14.0",
+        "@vitejs/plugin-react-swc": "^3.5.0",
+        "eslint": "^8.55.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.5",
+        "typescript": "^5.2.2",
+        "vite": "^5.0.8"
     }
 }
